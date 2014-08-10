@@ -1,70 +1,71 @@
-module.exports = function( grunt )
-{
-    // Project configuration
+module.exports = function( grunt ) {
+
     grunt.initConfig( {
         pkg: grunt.file.readJSON( "package.json" ),
-        watch:
-        {
-            scripts:
-            {
+        watch: {
+            scripts: {
                 files: [
                     "public/app/*"
                 ],
                 tasks: [ "concat:scripts" ]
             }
         },
-        uglify:
-        {
-            options:
-            {
+        uglify: {
+            options: {
                 mangle: true,
                 compress: true,
                 banner: "/*! <%= pkg.name %> <%= grunt.template.today( 'yyyy-mm-dd' ) %> */",
                 sourceMap: true,
                 sourceMapName: "public/build/project.js.map"
             },
-            project:
-            {
-                files:
-                {
+            project: {
+                files: {
                     "public/build/project.js": [
                         "public/app/*"
                     ]
                 }
             }
         },
-        concat:
-        {
-            scripts:
-            {
+        concat: {
+            scripts: {
                 src: [
                     "public/app/*"
                 ],
                 dest: "public/build/project.js"
             },
-            angular:
-            {
+            angular: {
                 src: [
                     "public/bower_components/angular/angular.min.js",
                     "public/bower_components/angular-route/angular-route.min.js"
                 ],
                 dest: "public/build/angular.js"
+            },
+            jquery: {
+                src: [
+                    "public/bower_components/jquery/dist/jquery.min.js"
+                ],
+                dest: "public/build/jquery.js"
+            },
+            bootstrap: {
+                src: [
+                    "public/bower_components/bootstrap/dist/bootstrap.min.js"
+                ],
+                dest: "public/build/bootstrap.js"
             }
         }
     } );
 
-    // Load plugins
     grunt.loadNpmTasks( "grunt-contrib-watch" );
     grunt.loadNpmTasks( "grunt-contrib-uglify" );
     grunt.loadNpmTasks( "grunt-contrib-concat" );
 
-    // Default task(s)
     grunt.registerTask( "default", [
         "concat:scripts",
+        "concat:jquery",
+        "concat:bootstrap",
         "concat:angular"
     ] );
 
-    // Customize deploy task, or add additional deploy tasks for each environment being deployed to
     grunt.registerTask( "deploy",  [
         "uglify",
         "concat:angular"
