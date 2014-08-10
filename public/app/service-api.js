@@ -19,10 +19,19 @@ svcMod.factory( 'API', [ "$http", "$window", function ( $http, $window ) {
 
         $http( options )
             .success( function ( data, status, headers, config ) {
+
                 callback( null, data );
+
             } )
             .error( function ( data, status, headers, config ) {
-                callback( data, null );
+
+                var error = {
+                    data: data,
+                    status: status
+                };
+
+                callback( error, null );
+
             } );
 
     };
