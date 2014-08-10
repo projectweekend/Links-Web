@@ -3,7 +3,8 @@ var angMod = angular.module( "linksWeb", [
     "linksWeb.service-api",
     "linksWeb.directives",
     "linksWeb.controller-home",
-    "linksWeb.controller-login"
+    "linksWeb.controller-login",
+    "linksWeb.controller-logout"
 ] );
 
 angMod.config( [
@@ -15,6 +16,11 @@ angMod.config( [
         $routeProvider.when( "/login", {
             templateUrl: "partials/login",
             controller: "Login"
+        } );
+
+        $routeProvider.when( "/logout", {
+            templateUrl: "partials/logout",
+            controller: "Logout"
         } );
 
         $routeProvider.when( "/", {
