@@ -45,7 +45,8 @@ module.exports = function( grunt )
             angular:
             {
                 src: [
-                    "public/bower_components/angular/angular.min.js"
+                    "public/bower_components/angular/angular.min.js",
+                    "public/bower_components/angular-route/angular-route.min.js"
                 ],
                 dest: "public/build/angular.js"
             }
