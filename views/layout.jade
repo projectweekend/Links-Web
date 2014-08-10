@@ -1,7 +1,10 @@
 doctype html
-html
+html(ng-app="linksWeb")
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
+
+    script(src="build/angular.js")
+    script(src="build/project.js")
