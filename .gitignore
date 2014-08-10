@@ -4,3 +4,6 @@
 
 node_modules/
 .vagrant
+
+public/build
+public/bower_components
