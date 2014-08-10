@@ -1,9 +1,9 @@
 var angMod = angular.module( "linksWeb", [
     "ngRoute",
-    "linksWeb.services",
+    "linksWeb.service-api",
     "linksWeb.directives",
-    "linksWeb.home-controller",
-    "linksWeb.login-controller"
+    "linksWeb.controller-home",
+    "linksWeb.controller-login"
 ] );
 
 angMod.config( [
