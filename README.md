@@ -10,3 +10,9 @@ The development environment for this project is fully bootstrapped and portable 
 * `vagrant destroy` - Delete the VM.
 * `/vagrant` - The path on the VM where the project code is mounted. All `fig` commands mus be executed from this path.
 * `fig up` - Start the web application container. On first launch the base container will be downloaded from the Docker Registry so it could take a while. Subsequent launches are much faster.
+
+## Structure
+
+* `app.js` - the Node app serving the Angular app and template partials.
+* `views/partials/` - all the Jade templates used for partial views in the Angular app.
+* `public/app/` - all the JavaScript files that make up the Angular app. Grunt tasks are used to concatenate all of the files from `public/app` into a single file `public/build/project.js`.
