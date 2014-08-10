@@ -1,0 +1,25 @@
+{
+  "name": "Links-Web",
+  "version": "0.0.1",
+  "homepage": "https://github.com/projectweekend/Links-Web",
+  "authors": [
+    "Brian Hines <brian@projectweekend.net>"
+  ],
+  "description": "The web app for http://links.projectweekend.net",
+  "main": "build/project.js",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.21"
+  }
+}
