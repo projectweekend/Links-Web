@@ -2,7 +2,8 @@ var angMod = angular.module( "linksWeb", [
     "ngRoute",
     "linksWeb.services",
     "linksWeb.directives",
-    "linksWeb.home-controller"
+    "linksWeb.home-controller",
+    "linksWeb.login-controller"
 ] );
 
 angMod.config( [
@@ -10,6 +11,11 @@ angMod.config( [
     "$locationProvider",
     "$sceDelegateProvider",
     function ( $routeProvider, $locationProvider, $sceDelegateProvider ) {
+
+        $routeProvider.when( "/login", {
+            templateUrl: "partials/login",
+            controller: "Login"
+        } );
 
         $routeProvider.when( "/", {
             templateUrl: "partials/home",
