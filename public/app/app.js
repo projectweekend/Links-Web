@@ -5,7 +5,8 @@ var angMod = angular.module( "linksWeb", [
     "linksWeb.controller-home",
     "linksWeb.controller-signup",
     "linksWeb.controller-login",
-    "linksWeb.controller-logout"
+    "linksWeb.controller-logout",
+    "linksWeb.controller-password"
 ] );
 
 angMod.config( [
@@ -13,6 +14,11 @@ angMod.config( [
     "$locationProvider",
     "$sceDelegateProvider",
     function ( $routeProvider, $locationProvider, $sceDelegateProvider ) {
+
+        $routeProvider.when( "/", {
+            templateUrl: "partials/home",
+            controller: "Home"
+        } );
 
         $routeProvider.when( "/signup", {
             templateUrl: "partials/signup",
@@ -29,15 +35,13 @@ angMod.config( [
             controller: "Logout"
         } );
 
-        $routeProvider.when( "/", {
-            templateUrl: "partials/home",
-            controller: "Home"
+        $routeProvider.when( "/password/reset/start", {
+            templateUrl: "partials/password-reset-start",
+            controller: "PasswordResetStart"
         } );
 
         $routeProvider.otherwise( {
             redirectTo: "/"
         } );
-
-        $locationProvider.html5Mode( true );
 
 } ] );
