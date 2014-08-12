@@ -40,6 +40,11 @@ angMod.config( [
             controller: "PasswordResetStart"
         } );
 
+        $routeProvider.when( "/password/reset/finish", {
+            templateUrl: "partials/password-reset-finish",
+            controller: "PasswordResetFinish"
+        } );
+
         $routeProvider.otherwise( {
             redirectTo: "/"
         } );
