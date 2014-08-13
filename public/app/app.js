@@ -25,6 +25,11 @@ angMod.config( [
             controller: "Signup"
         } );
 
+        $routeProvider.when( "/signup/confirm", {
+            templateUrl: "partials/signup-confirm",
+            controller: "SignupConfirm"
+        } );
+
         $routeProvider.when( "/login", {
             templateUrl: "partials/login",
             controller: "Login"
