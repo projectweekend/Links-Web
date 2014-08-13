@@ -6,7 +6,8 @@ var angMod = angular.module( "linksWeb", [
     "linksWeb.controller-signup",
     "linksWeb.controller-login",
     "linksWeb.controller-logout",
-    "linksWeb.controller-password"
+    "linksWeb.controller-password",
+    "linksWeb.controller-email"
 ] );
 
 angMod.config( [
@@ -38,6 +39,16 @@ angMod.config( [
         $routeProvider.when( "/logout", {
             templateUrl: "partials/logout",
             controller: "Logout"
+        } );
+
+        $routeProvider.when( "/email/change/start", {
+            templateUrl: "partials/email-change-start",
+            controller: "EmailChangeStart"
+        } );
+
+        $routeProvider.when( "/email/change/finish", {
+            templateUrl: "partials/email-change-finish",
+            controller: "EmailChangeFinish"
         } );
 
         $routeProvider.when( "/password/change", {
