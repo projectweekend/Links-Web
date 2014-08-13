@@ -40,6 +40,11 @@ angMod.config( [
             controller: "Logout"
         } );
 
+        $routeProvider.when( "/password/change", {
+            templateUrl: "partials/password-change",
+            controller: "PasswordChange"
+        } );
+
         $routeProvider.when( "/password/reset/start", {
             templateUrl: "partials/password-reset-start",
             controller: "PasswordResetStart"
