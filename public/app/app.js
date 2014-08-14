@@ -7,7 +7,9 @@ var angMod = angular.module( "linksWeb", [
     "linksWeb.controller-login",
     "linksWeb.controller-logout",
     "linksWeb.controller-password",
-    "linksWeb.controller-email"
+    "linksWeb.controller-email",
+    "linksWeb.controller-folders",
+    "linksWeb.controller-links"
 ] );
 
 angMod.config( [
@@ -64,6 +66,16 @@ angMod.config( [
         $routeProvider.when( "/password/reset/finish", {
             templateUrl: "partials/password-reset-finish",
             controller: "PasswordResetFinish"
+        } );
+
+        $routeProvider.when( "/folders", {
+            templateUrl: "partials/folders",
+            controller: "Folders"
+        } );
+
+        $routeProvider.when( "/links", {
+            templateUrl: "partials/links",
+            controller: "Links"
         } );
 
         $routeProvider.otherwise( {
