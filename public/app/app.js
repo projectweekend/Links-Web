@@ -2,6 +2,7 @@ var angMod = angular.module( "linksWeb", [
     "ngRoute",
     "linksWeb.service-api",
     "linksWeb.directives",
+    "linksWeb.controller-site",
     "linksWeb.controller-home",
     "linksWeb.controller-signup",
     "linksWeb.controller-login",
