@@ -1,8 +1,8 @@
 var ctlMod = angular.module( "linksWeb.controller-signup", [] );
 
 
-ctlMod.controller( "Signup", [ "$scope", "$rootScope", "$location", "API",
-    function ( $scope, $rootScope, $location, API ) {
+ctlMod.controller( "Signup", [ "$scope", "$rootScope", "$location", "API", "ENV",
+    function ( $scope, $rootScope, $location, API, ENV ) {
 
         $scope.signupData = {
             username: "",
@@ -10,7 +10,7 @@ ctlMod.controller( "Signup", [ "$scope", "$rootScope", "$location", "API",
         };
 
         $scope.signup = function () {
-            API.$post( $rootScope.apiUrl + "/maker/register", $scope.signupData,
+            API.$post( ENV.apiRoot + "/maker/register", $scope.signupData,
                 function ( err, data ) {
                     if ( err ) {
                         return $rootScope.$broadcast( 'error', data );
