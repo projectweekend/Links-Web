@@ -4,4 +4,4 @@ RUN mkdir /code
 ADD . /code/
 WORKDIR /code
 
-EXPOSE 3000
+EXPOSE 3001
