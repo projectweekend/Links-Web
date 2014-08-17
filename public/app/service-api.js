@@ -6,9 +6,12 @@ svcMod.factory( 'API', [ "$http", "$window", function ( $http, $window ) {
     var apiRequest = function ( method, path, requestData, callback ) {
 
         var headers = {
-            "Content-Type": "application/json",
-            "Authorization": "Token " + $window.sessionStorage.token
+            "Content-Type": "application/json"
         };
+
+        if ( $window.sessionStorage.token ) {
+            headers.Authorization = "Token " + $window.sessionStorage.token;
+        }
 
         var options = {
             method: method,
