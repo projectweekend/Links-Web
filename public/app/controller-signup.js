@@ -15,7 +15,7 @@ ctlMod.controller( "Signup", [ "$scope", "$rootScope", "$location", "API", "ENV"
             API.$post( ENV.apiRoot + "/maker/register", $scope.newUser,
                 function ( err, data ) {
                     if ( err ) {
-                        return $rootScope.$broadcast( 'error', err );
+                        return $rootScope.$broadcast( 'error', { errorData: err} );
                     }
                     return $location.path( "/signup/confirm" );
                 } );
