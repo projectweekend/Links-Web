@@ -1,32 +1,42 @@
 div(class="row")
+
   div(class="col-md-4 col-md-offset-4")
+
     form(ng-submit="signup()", id="signup-form", name="signupForm", novalidate)
+
       div(class="form-group")
         label Email
         input(ng-model="newUser.email", class="form-control", type="email", 
               name="email", required)
-      p(ng-if="signupForm.email.$dirty && signupForm.email.$invalid" 
+      p(ng-if="signupForm.email.$invalid && signupForm.submitted" 
         class="text-danger input-error") A valid email is required
+
       div(class="form-group")
         label Password
         input(ng-model="newUser.password", class="form-control", type="password", 
               name="password", required)
-      p(ng-if="signupForm.password.$dirty && signupForm.password.$invalid" 
+      p(ng-if="signupForm.password.$invalid && signupForm.submitted" 
         class="text-danger input-error") Required
+
       div(class="row")
+
         div(class="col-md-6")
+
           div(class="form-group")
             label First Name
             input(ng-model="newUser.first_name", ng-minlength=1, ng-maxlength=50, 
                   class="form-control", type="text", name="firstName", required)
-          p(ng-if="signupForm.firstName.$dirty && signupForm.firstName.$invalid" 
+          p(ng-if="signupForm.firstName.$invalid && signupForm.submitted" 
             class="text-danger input-error") Required
+
         div(class="col-md-6")
+
           div(class="form-group")
             label Last Name
             input(ng-model="newUser.last_name", ng-minlength=1, ng-maxlength=50, 
                   class="form-control", type="text", name="lastName",  required)                            
-          p(ng-if="signupForm.lastName.$dirty && signupForm.lastName.$invalid" 
+          p(ng-if="signupForm.lastName.$invalid && signupForm.submitted" 
             class="text-danger input-error") Required            
+
       div(class="btn-toolbar")
         button(type="submit", class="btn btn-block btn-primary") Signup

@@ -12,6 +12,12 @@ ctlMod.controller( "Signup", [ "$scope", "$rootScope", "$location", "API", "ENV"
         };
 
         $scope.signup = function () {
+
+            if ( $scope.signupForm.$invalid ) {
+                $scope.signupForm.submitted = true;
+                return;
+            }
+
             API.$post( ENV.apiRoot + "/maker/register", $scope.newUser,
                 function ( err, data ) {
                     if ( err ) {
