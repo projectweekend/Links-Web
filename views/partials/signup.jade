@@ -5,20 +5,28 @@ div(class="row")
         label Email
         input(ng-model="signup.identifier", class="form-control", type="email", 
               name="email", required)
+      p(ng-if="signupForm.email.$dirty && signupForm.email.$invalid" 
+        class="text-danger") A valid email is required
       div(class="form-group")
         label Password
         input(ng-model="signup.password", class="form-control", type="password", 
               name="password", required)
+      p(ng-if="signupForm.password.$dirty && signupForm.password.$invalid" 
+        class="text-danger") Required
       div(class="row")
         div(class="col-md-6")
           div(class="form-group")
             label First Name
             input(ng-model="signup.first_name", ng-minlength=1, ng-maxlength=50, 
                   class="form-control", type="text", name="firstName", required)
+          p(ng-if="signupForm.firstName.$dirty && signupForm.firstName.$invalid" 
+            class="text-danger") Required
         div(class="col-md-6")
           div(class="form-group")
             label Last Name
             input(ng-model="signup.last_name", ng-minlength=1, ng-maxlength=50, 
-                  class="form-control", type="text", name="firstName",  required)                            
+                  class="form-control", type="text", name="lastName",  required)                            
+          p(ng-if="signupForm.lastName.$dirty && signupForm.lastName.$invalid" 
+            class="text-danger") Required            
       div(class="btn-toolbar")
         button(type="submit", class="btn btn-block btn-primary") Signup
