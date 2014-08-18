@@ -1,1 +1,20 @@
 div(class="row")
+
+  div(class="col-md-4 col-md-offset-4")
+
+    div(class="page-header")
+      h1 Confirmation
+
+    form(ng-submit="signupConfirm()", id="signup-confirm-form", 
+          name="signupConfirmForm", novalidate)
+
+      p(class="lead") Paste the code received in your email.
+
+      div(class="form-group")
+        input(ng-model="code", class="form-control", type="text", 
+              name="code", required)
+      p(ng-if="signupConfirmForm.code.$invalid && signupConfirmForm.submitted" 
+        class="text-danger input-error") Required
+
+      div(class="btn-toolbar")
+        button(type="submit", class="btn btn-block btn-primary") Submit        

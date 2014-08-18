@@ -25,11 +25,36 @@ ctlMod.controller( "Signup", [ "$scope", "$rootScope", "$location", "API", "ENV"
                     }
                     return $location.path( "/signup/confirm" );
                 } );
+
         };
 
     } ] );
 
 
-ctlMod.controller( "SignupConfirm", [ "$scope", function ( $scope ) {
+ctlMod.controller( "SignupConfirm", [ "$scope", "$rootScope", "$location", "API", "ENV",
+    function ( $scope, $rootScope, $location, API, ENV ) {
 
-} ] );
+        $scope.code = "";
+
+        $scope.signupConfirm = function () {
+
+            if ( $scope.signupConfirmForm.$invalid ) {
+                $scope.signupConfirmForm.submitted = true;
+                return;
+            }
+
+            var postData = {
+                token: $scope.code
+            };
+
+            API.$post( ENV.apiRoot + "/maker/email/verification", postData,
+                function ( err, data ) {
+                     if ( err ) {
+                         return $rootScope.$broadcast( 'error', { errorData: err} );
+                     }
+                     return $location.path( "/login" );
+                 } );
+
+        };
+
+    } ] );
