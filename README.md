@@ -1,4 +1,4 @@
-The web app for what will become http://links.projectweekend.net
+This project probably won't go anywhere since I started working on [https://github.com/projectweekend/Links-App](https://github.com/projectweekend/Links-App) instead.
 
 ## Development Environment
 
